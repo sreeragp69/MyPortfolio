@@ -4,11 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#e2a836",
+        primary: "#FFB400",
         black: "#111111",
         gray: "#2b2a2a", // Consistent casing
         "light-gray": "#dddddd",
-        "mid-gray": "#4a4a4a", // Changed to a unique value
+        "mid-gray": "#4a4a4a",
+      },
+      transitionTimingFunction: {
+        'custom-timing': 'cubic-bezier(0.890, -0.170, 0.140, 1.225)',
       },
     },
   },

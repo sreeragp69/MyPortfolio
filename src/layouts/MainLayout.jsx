@@ -4,13 +4,14 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col md:flex-row min-h-screen">
+    <div className="flex flex-col relative lg:flex-row min-h-screen">
       {/* Main Content */}
-      <div className="flex-1  order-2 md:order-1">
+      <main className="flex-1 relative order-2 lg:order-1">
+        <div className="yellowShade"></div>
         <Outlet />
-      </div>
+      </main>
       {/* Navbar */}
-      <div className="w-full md:w-[10%]  order-1 md:order-2">
+      <div className="w-full lg:w-[10%]  order-1 lg:order-2">
         <Navbar />
       </div>
     </div>
