@@ -10,7 +10,7 @@ const MainLayout = () => {
         <Outlet />
       </div>
       {/* Navbar */}
-      <div className="w-full md:w-1/5 order-1 md:order-2">
+      <div className="w-full md:w-[10%]  order-1 md:order-2">
         <Navbar />
       </div>
     </div>

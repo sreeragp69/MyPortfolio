@@ -1,44 +1,97 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import { FaEnvelope, FaHome, FaToolbox, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
+  const [sidebarTransitionComplete, setSidebarTransitionComplete] =
+    useState(false);
+
   const handleClick = () => {
-    setSidebar((prev) => !prev);
+    if (!sidebar) {
+      setSidebar(true);
+    } else {
+      setSidebarTransitionComplete(false);
+      setSidebar(false);
+    }
   };
 
+  // Wait for Sidebar transition to complete before showing RxCross2
+  useEffect(() => {
+    if (sidebar) {
+      const timer = setTimeout(() => {
+        setSidebarTransitionComplete(true);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [sidebar]);
+
   return (
-    <header className=" absolute h-full md:relative md:h-full right-0 top-0 p-2 md:p-0  md:bg-black  md:w-auto text-white  ">
-      {sidebar ? (
-        <RxCross2 onClick={handleClick} className="text-red-800 md:hidden " />
-      ) : (
+    <header className="relative flex justify-end md:justify-center   h-screen  text-white">
+      {/* Hamburger Menu */}
+      {!sidebarTransitionComplete ? (
         <GiHamburgerMenu
           onClick={handleClick}
-          className="text-red-800 md:hidden"
+          className="text-red-800 m-2 text-2xl cursor-pointer transition duration-300 transform md:hidden"
+        />
+      ) : (
+        <RxCross2
+          onClick={handleClick}
+          className="text-red-800 z-10 m-2 text-2xl cursor-pointer transition duration-300 transform md:hidden"
         />
       )}
 
-      {sidebar ? (
-        <nav className=" top-[50%] left-[50%]  md:relative absolute  md:hidden flex bg-[#292929]">
-          <ul className=" flex text-white space-y-4  flex-col">
-            <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/about"}>About</NavLink>
-            <NavLink to={"/portfolio"}>Portfolio</NavLink>
-            <NavLink to={"/contact"}>Contact</NavLink>
-          </ul>
-        </nav>
-      ) : (
-        ""
-      )}
-      <nav>
-        <ul className=" md:flex hidden    flex-col">
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/about"}>About</NavLink>
-          <NavLink to={"/portfolio"}>Portfolio</NavLink>
-          <NavLink to={"/contact"}>Contact</NavLink>
-        </ul>
+      {/* Sidebar */}
+      <Sidebar isOpen={sidebar} />
+
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex w-full justify-center flex-col text-light-gray   h-full p-3 space-y-6 items-center">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            ` ${
+              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
+            } text-white rounded-full`
+          }
+        >
+          <FaHome className="text-2xl" />
+        </NavLink>
+
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            ` ${
+              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
+            } text-white rounded-full`
+          }
+        >
+          <FaUser className="text-2xl" />
+        </NavLink>
+
+        <NavLink
+          to="/portfolio"
+          className={({ isActive }) =>
+            ` ${
+              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
+            } text-white rounded-full`
+          }
+        >
+          <FaToolbox className="text-2xl" />
+        </NavLink>
+
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            ` ${
+              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
+            } text-white rounded-full`
+          }
+        >
+          <FaEnvelope className="text-2xl" />
+        </NavLink>
       </nav>
     </header>
   );
