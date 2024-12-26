@@ -19,6 +19,11 @@ const Navbar = () => {
     }
   };
 
+  const closeSidebar = () => {
+    setSidebar(false);
+    setSidebarTransitionComplete(false);
+  };
+
   // Wait for Sidebar transition to complete before showing RxCross2
   useEffect(() => {
     if (sidebar) {
@@ -30,36 +35,35 @@ const Navbar = () => {
   }, [sidebar]);
 
   return (
-    <header className="relative flex justify-end lg:justify-center bg-black  lg:h-screen  text-white">
+    <header className="relative flex justify-end lg:justify-center bg-black lg:h-screen text-white">
       {/* Hamburger Menu */}
       {!sidebarTransitionComplete ? (
         <button
           onClick={handleClick}
-          className="text-white bg-[#252525] h-fit m-1 p-3 md:m-4 md:p-4 md:text-2xl  text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
+          className="text-white bg-[#252525] h-fit m-1 p-3 md:m-4 md:p-4 md:text-2xl text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
         >
           <GiHamburgerMenu />
         </button>
       ) : (
         <button
           onClick={handleClick}
-          className="z-10 text-white bg-[#252525] h-fit m-1 p-3 text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
+          className="z-20 text-white bg-[#252525] h-fit m-1 p-3 text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
         >
           <RxCross2 />
         </button>
       )}
 
       {/* Sidebar */}
-      <Sidebar isOpen={sidebar} />
+      <Sidebar isOpen={sidebar} closeSidebar={closeSidebar} />
 
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex w-full justify-center flex-col text-light-gray   h-full p-3 space-y-6 items-center">
+      <nav className="hidden lg:flex w-full justify-center flex-col text-light-gray h-full p-3 space-y-6 items-center">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            ` ${
-              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
-            } text-white rounded-full relative hover-btn `
+            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full relative hover-btn`
           }
+          onClick={closeSidebar}
         >
           <FaHome className="text-2xl icon" />
         </NavLink>
@@ -67,10 +71,9 @@ const Navbar = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            ` ${
-              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
-            } text-white rounded-full hover-btn`
+            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn`
           }
+          onClick={closeSidebar}
         >
           <FaUser className="text-2xl icon" />
         </NavLink>
@@ -78,10 +81,9 @@ const Navbar = () => {
         <NavLink
           to="/portfolio"
           className={({ isActive }) =>
-            ` ${
-              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
-            } text-white rounded-full hover-btn`
+            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn`
           }
+          onClick={closeSidebar}
         >
           <FaToolbox className="text-2xl icon " />
         </NavLink>
@@ -89,10 +91,9 @@ const Navbar = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            ` ${
-              isActive ? "bg-primary text-white  p-3 " : " bg-mid-gray p-3"
-            } text-white rounded-full hover-btn`
+            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn`
           }
+          onClick={closeSidebar}
         >
           <FaEnvelope className="text-2xl icon" />
         </NavLink>

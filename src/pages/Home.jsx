@@ -27,7 +27,9 @@ const Home = () => {
 
   return (
     <section className="w-full relative flex items-center justify-center bg-black">
+      {/* CONTAINER  */}
       <div className="max-w-xl lg:max-w-full py-8 justify-center lg:gap-12 min-h-screen flex flex-col lg:flex-row items-center">
+        {/* MAIN IMGAE SECTION */}
         <div className=" lg:imageSection lg:w-[38%]  h-full lg:rounded-[2rem] m-1 bg-transparent mb-5 flex items-center justify-center">
           <div className="rounded-full w-full h-full border-4 lg:border-none border-[#252525]">
             <img
@@ -47,6 +49,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* MY DETAILS SECTION */}
         <div className="contentSection lg:w-[50%] m-1   text-white">
           <div className="p-3 lg:pl-12 ml-6 lg:mb-3  relative">
             <h1 className="headingBar  text-3xl text-primary lg:text-[2.9rem] leading-10 lg:leading-[3.3rem] uppercase font-bold text-center lg:text-start">
