@@ -10,6 +10,7 @@ import {
 import { AiFillInstagram } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import ContactForm from "../components/ContactForm/ContactForm";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -18,7 +19,11 @@ const Contact = () => {
       <div className="max-w-2xl pb-10  lg:max-w-full md:py-8  mx-auto w-[96%] px-4 lg:px-10 pr-4 flex-col  justify-start lg:gap-12 min-h-screen flex items-center">
         {/* CONTACT HEADER */}
         <div className="flex  justify-center items-center  w-full  md:p-3 m-3 md:m-5 ">
-          <Heading />
+          <Heading
+            bgText={"connect"}
+            headTextWhite={"get in"}
+            headTextOrenge={"touch"}
+          />
         </div>
 
         {/* COTACT */}
@@ -40,7 +45,9 @@ const Contact = () => {
                 <FaEnvelopeOpen className="text-4xl text-primary" />
                 <div>
                   <p className="uppercase text-light-gray">mail me</p>
-                  <p className="text-white font-bold">psreerag@gmail.com</p>
+                  <Link className="text-white font-bold no-underline ">
+                    psreerag@gmail.com
+                  </Link>
                 </div>
               </div>
 
@@ -48,7 +55,9 @@ const Contact = () => {
                 <FaPhoneSquare className="text-4xl text-primary" />
                 <div>
                   <p className="uppercase text-light-gray">call me</p>
-                  <p className="text-white font-bold">+216 21 184 010</p>
+                  <Link className="text-white font-bold no-underline">
+                    +216 21 184 010
+                  </Link>
                 </div>
               </div>
             </div>
@@ -72,7 +81,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="w-full lg:w-[69%] text-white flex flex-col gap-5">
-           <ContactForm/>
+            <ContactForm />
           </div>
         </div>
       </div>

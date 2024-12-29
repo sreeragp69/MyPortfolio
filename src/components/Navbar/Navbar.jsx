@@ -91,7 +91,7 @@ const Navbar = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn`
+            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn `
           }
           onClick={closeSidebar}
         >

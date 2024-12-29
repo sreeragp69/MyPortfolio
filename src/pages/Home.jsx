@@ -31,19 +31,19 @@ const Home = () => {
       <div className="max-w-xl lg:max-w-full py-8 justify-center lg:gap-12 min-h-screen flex flex-col lg:flex-row items-center">
         {/* MAIN IMGAE SECTION */}
         <div className=" lg:imageSection lg:w-[38%]  h-full lg:rounded-[2rem] m-1 bg-transparent mb-5 flex items-center justify-center">
-          <div className="rounded-full w-full h-full border-4 lg:border-none border-[#252525]">
+          <div className="rounded-full w-52 md:w-64 h-52 md:h-64 lg:h-full lg:w-full   border-4 lg:border-none border-[#252525]">
             <img
-              className={`rounded-full w-52 md:w-64 ${
+              className={`rounded-full text-white text-center  w-full h-full ${
                 isMobileView ? "" : "hidden"
               }`}
-              src={mobileImage}
+              src={"./img-mobile.jpg"}
               alt="Image Avatar Mobile"
             />
             <img
               className={`rounded-[2rem] w-full h-full ${
                 isMobileView ? "hidden" : ""
               }`}
-              src={desktopImage}
+              src={"./img-desktop.jpg"}
               alt="Image Avatar Desktop"
             />
           </div>

@@ -1,10 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   background: #111111;
+  font-family: "Poppins", serif;
 }
+.poppins-medium {
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+
 
 .btn {
   display: inline-block;
@@ -53,12 +87,11 @@ body {
   width: 100%;
 }
 
-
 .hover-btn {
   font-size: 1.5rem;
   margin: 10% auto;
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  width: 53px;  /* Default width */
+  width: 53px; /* Default width */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +101,7 @@ body {
 }
 
 .hover-btn:hover {
-  width: 100px;  /* Expanded width */
+  width: 100px; /* Expanded width */
   background-color: #ffb400;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   color: #fff;
@@ -80,7 +113,6 @@ body {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-
 
 .imageSection {
   box-shadow: 0px 0px 15px #000;
@@ -101,4 +133,16 @@ body {
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
+}
+
+
+
+
+.resume-box li:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  bottom: 0;
+  border-left: 1px solid #4a4a4a;
 }
