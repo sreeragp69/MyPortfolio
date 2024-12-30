@@ -92,7 +92,7 @@ const About = () => {
               </h2>
             </div>
 
-            <div className="rounded-full  w-52 md:w-64 h-52 md:h-64 border-4 lg:border-none lg:hidden flex border-[#252525]">
+            <div className="rounded-full my-4  w-52 md:w-64 h-52 md:h-64 border-4 lg:border-none lg:hidden flex border-[#252525]">
               <img
                 className="rounded-full text-center  h-full w-full lg:hidden"
                 src="/img-mobile.jpg"
@@ -134,7 +134,7 @@ const About = () => {
 
         <hr className="text-gray w-1/2  my-10 " />
 
-        <Education/>
+        <Education />
       </div>
     </section>
   );

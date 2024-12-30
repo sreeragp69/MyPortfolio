@@ -24,7 +24,26 @@ const Navbar = () => {
     setSidebarTransitionComplete(false);
   };
 
-  // Wait for Sidebar transition to complete before showing RxCross2
+  //* Auto-close sidebar when viewport width >= md
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleMediaChange = (e) => {
+      if (e.matches) {
+        closeSidebar();
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleMediaChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaChange);
+    };
+  }, []);
+
+
+  //* Wait for Sidebar transition to complete before showing RxCross2
   useEffect(() => {
     if (sidebar) {
       const timer = setTimeout(() => {
@@ -40,14 +59,14 @@ const Navbar = () => {
       {!sidebarTransitionComplete ? (
         <button
           onClick={handleClick}
-          className="text-white bg-[#252525] h-fit m-1 p-3 md:m-4 md:p-4 md:text-2xl text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
+          className="text-white bg-[#252525] h-fit m-3 p-3 md:m-4 md:p-4 md:text-2xl text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
         >
           <GiHamburgerMenu />
         </button>
       ) : (
         <button
           onClick={handleClick}
-          className="z-20 text-white bg-[#252525] h-fit m-1 p-3 text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
+          className="z-20 text-white bg-[#252525] h-fit m-3 p-3 text-2xl rounded-md cursor-pointer transition duration-300 transform lg:hidden"
         >
           <RxCross2 />
         </button>
@@ -61,7 +80,9 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full relative hover-btn`
+            `${
+              isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"
+            } text-white rounded-full relative hover-btn`
           }
           onClick={closeSidebar}
         >
@@ -71,7 +92,9 @@ const Navbar = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn`
+            `${
+              isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"
+            } text-white rounded-full hover-btn`
           }
           onClick={closeSidebar}
         >
@@ -81,7 +104,9 @@ const Navbar = () => {
         <NavLink
           to="/portfolio"
           className={({ isActive }) =>
-            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn`
+            `${
+              isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"
+            } text-white rounded-full hover-btn`
           }
           onClick={closeSidebar}
         >
@@ -91,7 +116,9 @@ const Navbar = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            `${isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"} text-white rounded-full hover-btn `
+            `${
+              isActive ? "bg-primary text-white p-3" : "bg-mid-gray p-3"
+            } text-white rounded-full hover-btn `
           }
           onClick={closeSidebar}
         >

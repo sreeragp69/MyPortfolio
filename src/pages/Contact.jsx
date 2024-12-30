@@ -3,12 +3,11 @@ import Heading from "../components/Heading/Heading";
 import {
   FaEnvelopeOpen,
   FaGithub,
-  FaPhone,
+  FaLinkedin,
   FaPhoneSquare,
   FaTwitter,
 } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { SiLeetcode } from "react-icons/si";
 import ContactForm from "../components/ContactForm/ContactForm";
 import { Link } from "react-router-dom";
 
@@ -28,6 +27,7 @@ const Contact = () => {
 
         {/* COTACT */}
         <div className="flex pb-4 flex-col lg:flex-row  w-full items-start  justify-between gap-5 text-white px-1 py-2">
+        
           <div className="lg:w-[30%]  flex flex-col items-start justify-start gap-4">
             <div className="">
               <h2 className="font-bold text-white pb-3 text-2xl">
@@ -56,30 +56,31 @@ const Contact = () => {
                 <div>
                   <p className="uppercase text-light-gray">call me</p>
                   <Link className="text-white font-bold no-underline">
-                    +216 21 184 010
+                    +91 7306259602
                   </Link>
                 </div>
               </div>
             </div>
 
             <div className="flex items-center justify-between gap-4 mt-2 text-xl">
-              <div className="p-3 bg-gray rounded-full">
+              <Link target="_blank" to={"https://github.com/sreeragp69"} className="p-3 bg-gray rounded-full">
                 <FaGithub />
-              </div>
+              </Link>
 
-              <div className="p-3 bg-gray rounded-full">
-                <FaTwitter />
-              </div>
+              <Link target="_blank" to={"https://www.linkedin.com/in/sreerag-p/"} className="p-3 bg-gray rounded-full">
+                <FaLinkedin />
+              </Link>
 
-              <div className="p-3 bg-gray rounded-full">
+              <Link target="_blank" to={"https://www.instagram.com/s.r.e.e__rag/"} className="p-3 bg-gray rounded-full">
                 <AiFillInstagram />
-              </div>
+              </Link>
 
-              <div className="p-3 bg-gray rounded-full">
-                <SiLeetcode />
-              </div>
+              <Link target="_blank" to={"https://x.com/Sree_rag_p"} className="p-3 bg-gray rounded-full">
+                <FaTwitter />
+              </Link>
             </div>
           </div>
+
           <div className="w-full lg:w-[69%] text-white flex flex-col gap-5">
             <ContactForm />
           </div>

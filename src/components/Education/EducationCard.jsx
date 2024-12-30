@@ -3,7 +3,7 @@ import { PiToolboxFill } from "react-icons/pi";
 
 const EducationCard = ({year,course,university,details}) => {
   return (
-    <li className="   relative leading-8  w-fit pr-6 pl-[3rem] md:pl-16 mb-14">
+    <li key={course} className="  relative leading-8  w-fit pr-6 pl-[3rem] md:pl-16 mb-14">
       <div className="absolute z-10 w-10 h-10 left-0 right-0 top-0 rounded-full bg-primary flex items-center justify-center">
         <PiToolboxFill />
       </div>
