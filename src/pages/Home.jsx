@@ -40,7 +40,7 @@ const Home = () => {
               alt="Image Avatar Mobile"
             />
             <img
-              className={`rounded-[2rem] w-full h-full ${
+              className={`rounded-[2rem] text-white  w-full h-full ${
                 isMobileView ? "hidden" : ""
               }`}
               src={"./img-desktop.jpg"}
