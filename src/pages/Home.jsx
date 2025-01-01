@@ -4,10 +4,6 @@ import Button from "../components/Button/Button";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const desktopImage =
-    "https://tunis-wp.ibthemespro.com/wp-content/uploads/2023/09/2.jpg";
-  const mobileImage =
-    "https://tunis-wp.ibthemespro.com/wp-content/uploads/2023/09/img-mobile.jpg";
 
   const [isMobileView, setIsMobileView] = useState(false);
 
@@ -28,7 +24,7 @@ const Home = () => {
   return (
     <section className="w-full relative flex items-center justify-center bg-black">
       {/* CONTAINER  */}
-      <div className="max-w-xl lg:max-w-full py-8 justify-center lg:gap-12 min-h-screen flex flex-col lg:flex-row items-center">
+      <div className="max-w-xl lg:max-w-full p-8 md:p-8 justify-center lg:gap-12 min-h-screen flex flex-col lg:flex-row items-center">
         {/* MAIN IMGAE SECTION */}
         <div className=" lg:imageSection lg:w-[38%]  h-full lg:rounded-[2rem] m-1 bg-transparent mb-5 flex items-center justify-center">
           <div className="rounded-full w-52 md:w-64 h-52 md:h-64 lg:h-full lg:w-full   border-4 lg:border-none border-[#252525]">
@@ -36,14 +32,14 @@ const Home = () => {
               className={`rounded-full text-white text-center  w-full h-full ${
                 isMobileView ? "" : "hidden"
               }`}
-              src={"./img-mobile.jpg"}
+              src={"./img-mobile.png"}
               alt="Image Avatar Mobile"
             />
             <img
               className={`rounded-[2rem] text-white  w-full h-full ${
                 isMobileView ? "hidden" : ""
               }`}
-              src={"./img-desktop.jpg"}
+              src={"./img-desktop.png"}
               alt="Image Avatar Desktop"
             />
           </div>

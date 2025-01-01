@@ -8,7 +8,7 @@ const Education = () => {
       course: "MERN FULL STACK ",
       university: "Luminar Technolab",
       details:
-        "Completed a 6-month MERN stack web development internship, gaining hands-on experience in building full-stack applications, RESTful APIs, managing MongoDB databases, and deploying projects, culminating in a certification recognizing technical expertise and contributions.",
+        "Completed a 6-month MERN stack web development course, gaining hands-on experience in building full-stack applications, RESTful APIs, managing MongoDB databases, and deploying projects, culminating in a certification recognizing technical expertise and contributions.",
     },
     {
       year: "2020-23",

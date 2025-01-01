@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#FFB400",
+        primary: "#2F607D",
+        "primary-light": '#5E85A1',
         black: "#111111",
         gray: "#2b2a2a", // Consistent casing
         "light-gray": "#dddddd",

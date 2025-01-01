@@ -8,18 +8,19 @@ const Portfolio = () => {
     {
       id: 1,
       image: "cofee-cup.png",
-      about: "Website Image",
+      about: "Coffee Website",
       techs:
         " React.js, React Router, Tailwind CSS, Axios, JWT, Node.js, Express.js, MongoDB, Mongoose",
       url: "https://cup-coffee-frontend.onrender.com/",
     },
     {
       id: 2,
-      image: "calculator.png",
-      about: "Simple Interest Calculator",
-      techs: "React.js, Bootstrap, React Router DOM.",
-      url: "https://simple-interestapp.netlify.app/",
+      image: "chat-app.png",
+      about: "Chatting App",
+      techs: "React.js, Tailwind CSS, Axios, JWT, Express.js, MongoDB, Mongoose, Node.js, Socket.IO, Zustand ",
+      url: "https://mern-chat-app-8my5.onrender.com/",
     },
+    
     {
       id: 3,
       image: "logo-room.png",
@@ -43,10 +44,10 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      image: "chat-app.png",
-      about: "Chatting App",
-      techs: "React.js, Tailwind CSS, Axios, JWT, Express.js, MongoDB, Mongoose, Node.js, Socket.IO, Zustand ",
-      url: "https://mern-chat-app-8my5.onrender.com/",
+      image: "calculator.png",
+      about: "Simple Interest Calculator",
+      techs: "React.js, Bootstrap, React Router DOM.",
+      url: "https://simple-interestapp.netlify.app/",
     },
     {
       id: 7,
@@ -109,7 +110,7 @@ const Portfolio = () => {
       {selectedWork && (
         <div className="modal   fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50">
           <div className="modal-content w-[90%] md:w-1/2 flex flex-col items-center bg-mid-gray p-6 rounded-lg">
-            <h3 className="text-3xl w-full text-primary md:text-center mb-4 font-semibold mt-4">
+            <h3 className="text-3xl w-full text-primary-light md:text-center mb-4 font-semibold mt-4">
               {selectedWork.about}
             </h3>
 
@@ -129,7 +130,7 @@ const Portfolio = () => {
                   Preview:
                 </p>
                 <Link
-                  className="underline text-primary w-[80%]"
+                  className="underline text-primary-light w-[80%]"
                   target="_blank"
                   rel="noopener noreferrer"
                   to={selectedWork.url}

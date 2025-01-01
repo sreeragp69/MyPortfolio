@@ -86,7 +86,7 @@ const About = () => {
         {/* PERSONAL INFOS */}
         <div className="flex pb-4 flex-col lg:flex-row justify-center  w-full lg:items-start  lg:justify-between gap-5 text-white px-1 py-2">
           <div className="lg:w-full  flex flex-col items-center justify-center lg:justify-center gap-3">
-            <div className="w-full">
+            <div className="w-full md:mb-3">
               <h2 className="font-bold  text-start text-white  text-2xl">
                 PERSONAL INFOS
               </h2>
@@ -95,16 +95,17 @@ const About = () => {
             <div className="rounded-full my-4  w-52 md:w-64 h-52 md:h-64 border-4 lg:border-none lg:hidden flex border-[#252525]">
               <img
                 className="rounded-full text-center  h-full w-full lg:hidden"
-                src="/img-mobile.jpg"
+                src="/img-mobile.png"
+
                 alt="Avatar image"
               />
             </div>
 
             <div className="flex justify-start  items-start w-full">
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-7">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                 {INFOS.map((item) => (
                   <div key={item.id} className="flex flex-col">
-                    <Link to={item.link} className="text-light-gray">
+                    <Link to={item.link} className="text-light-gray ">
                       <>
                         {item.key} :{" "}
                         <span className="font-semibold text-white">

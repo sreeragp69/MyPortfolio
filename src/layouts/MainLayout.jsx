@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import AnimatedCursor from "react-animated-cursor";
+import { Toaster } from "react-hot-toast";
 
 const MainLayout = () => {
   return (
@@ -18,11 +19,12 @@ const MainLayout = () => {
       <AnimatedCursor
         innerSize={8} // Size of the inner circle
         outerSize={44} // Size of the outer circle
-        color="255, 180, 0" // RGB values for Tailwind Blue
+        color="62, 119, 149" // RGB values for Tailwind Blue
         outerAlpha={0.3} // Transparency for the outer circle
         innerScale={0.8} // Scale effect on hover
         outerScale={1.5} // Scale effect on hover
       />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
