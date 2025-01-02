@@ -8,6 +8,14 @@ import Education from "../components/Education/Education";
 import DownloadButton from "../components/Button/DownloadButton";
 
 const About = () => {
+
+  const truncateTechName = (techName) => {
+    if (techName.length > 10) {
+      return techName.slice(0, 10) + "...";
+    }
+    return techName;
+  };
+
   const INFOS = [
     {
       id: 1,
@@ -110,7 +118,7 @@ const About = () => {
                       <>
                         {item.key} :{" "}
                         <span className="font-semibold text-white">
-                          {item.value}
+                       { truncateTechName(item.value)}
                         </span>
                       </>
                     </Link>
