@@ -23,14 +23,14 @@ const MainLayout = () => {
       <div className="w-full lg:w-[10%]  order-1 lg:order-2">
         <Navbar />
       </div>
-      <AnimatedCursor
-        innerSize={8} // Size of the inner circle
-        outerSize={44} // Size of the outer circle
-        color="62, 119, 149" // RGB values for Tailwind Blue
-        outerAlpha={0.3} // Transparency for the outer circle
-        innerScale={0.8} // Scale effect on hover
-        outerScale={1.5} // Scale effect on hover
-      />
+      {/* <AnimatedCursor
+        innerSize={8} 
+        outerSize={44} 
+        color="62, 119, 149" 
+        outerAlpha={0.3} 
+        innerScale={0.8}
+        outerScale={1.5} 
+      /> */}
       <Toaster position="top-center" reverseOrder={false} />
     </div>
   );

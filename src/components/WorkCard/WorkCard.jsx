@@ -22,6 +22,7 @@ const WorkCard = ({ key, image, about, onClick ,index}) => {
       data-aos-delay={index * 100}
     >
       
+      
       <img
         className={`w-full h-full opacity-90 rounded-md absolute transition-opacity duration-700 ${
           isHovered ? "opacity-0" : "opacity-100"
