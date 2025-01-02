@@ -4,6 +4,9 @@ import { FaTelegramPlane } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 const ContactForm = () => {
+
+  const API = `https://myportfolio-backend-1.onrender.com`
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -47,7 +50,7 @@ const ContactForm = () => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:5000/api/form/send-mail", {
+      const response = await fetch(API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
