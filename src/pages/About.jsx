@@ -111,14 +111,14 @@ const About = () => {
             </div>
 
             <div className="flex justify-start  items-start w-full">
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 {INFOS.map((item) => (
                   <div key={item.id} className="flex flex-col">
-                    <Link to={item.link} className="text-light-gray ">
+                    <Link to={item.link} className="text-light-gray text-sm">
                       <>
                         {item.key} :{" "}
-                        <span className="font-semibold text-white">
-                       { truncateTechName(item.value)}
+                        <span className="font-semibold text-xs text-white">
+                       {item.value}
                         </span>
                       </>
                     </Link>
