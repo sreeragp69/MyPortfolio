@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import Aos from "aos";
+import React, { useEffect, useState } from "react";
 
-const WorkCard = ({ key, image, about, onClick }) => {
+const WorkCard = ({ key, image, about, onClick ,index}) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    Aos.init({
+      duration: 1000, 
+      once: true,     
+    });
+  }, []);
 
   return (
     <div
@@ -10,6 +18,8 @@ const WorkCard = ({ key, image, about, onClick }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
+      data-aos="fade-right"
+      data-aos-delay={index * 100}
     >
       
       <img

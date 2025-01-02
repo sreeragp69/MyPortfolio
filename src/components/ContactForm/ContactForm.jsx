@@ -125,6 +125,7 @@ const ContactForm = () => {
             placeholder="Your name"
             onChange={handleChange}
             value={user.name}
+            required
           />
         </div>
 
@@ -136,6 +137,7 @@ const ContactForm = () => {
             placeholder="Your email"
             onChange={handleChange}
             value={user.email}
+            required
           />
         </div>
       </div>
@@ -148,6 +150,7 @@ const ContactForm = () => {
           placeholder="Your subject"
           onChange={handleChange}
           value={user.subject}
+          required
         />
       </div>
 
@@ -159,6 +162,7 @@ const ContactForm = () => {
           placeholder="Your message"
           onChange={handleChange}
           value={user.message}
+          required
         ></textarea>
       </div>
       {error && <div className="text-red-500 text-sm mt-2">{error}</div>}

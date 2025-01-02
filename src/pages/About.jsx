@@ -71,7 +71,7 @@ const About = () => {
   ];
 
   return (
-    <section className="w-full  relative flex items-center justify-center bg-black ">
+    <section className="w-full  relative flex items-center justify-center bg-black " data-aos="fade-up">
       {/* CONTAINER  */}
       <div className="max-w-2xl pb-10  lg:max-w-full md:py-8  mx-auto w-[96% px-4 lg:px-10 pr-4 flex-col  justify-start lg:gap-12 min-h-screen flex items-center">
         {/* Header part */}

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import AnimatedCursor from "react-animated-cursor";
 import { Toaster } from "react-hot-toast";
+import AOS from "aos";
 
 const MainLayout = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      once: true,     // Whether animation should happen only once
+    });
+  }, []);
   return (
-    <div className="flex flex-col relative lg:flex-row min-h-screen">
+    <div className="flex flex-col relative lg:flex-row min-h-screen "  data-aos="fade-up">
       {/* Main Content */}
       <main className="flex-1 relative order-2 lg:order-1">
         <div className="yellowShade"></div>

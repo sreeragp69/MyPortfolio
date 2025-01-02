@@ -5,6 +5,7 @@ import Portfolio from "./pages/Portfolio";
 import MainLayout from "./layouts/MainLayout";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import "aos/dist/aos.css";
 
 const App = () => {
   const router = createBrowserRouter([

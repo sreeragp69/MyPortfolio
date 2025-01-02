@@ -22,7 +22,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="w-full relative flex items-center justify-center bg-black">
+    <section className="w-full relative flex items-center justify-center bg-black"  data-aos="fade-up">
       {/* CONTAINER  */}
       <div className="max-w-xl lg:max-w-full p-8 md:p-8 justify-center lg:gap-12 min-h-screen flex flex-col lg:flex-row items-center">
         {/* MAIN IMGAE SECTION */}
