@@ -5,6 +5,7 @@ import { FaDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import MySkills from "../components/MySkills/MySkills";
 import Education from "../components/Education/Education";
+import DownloadButton from "../components/Button/DownloadButton";
 
 const About = () => {
   const INFOS = [
@@ -119,7 +120,7 @@ const About = () => {
             </div>
 
             <div className="w-full mt-4">
-              <Button
+              <DownloadButton
                 className="self-start  "
                 Icon={FaDownload}
                 text={" download cv"}
