@@ -50,7 +50,7 @@ const ContactForm = () => {
     setError(null);
 
     try {
-      const response = await fetch(API, {
+      const response = await fetch(`${API}/api/form/send-mail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
