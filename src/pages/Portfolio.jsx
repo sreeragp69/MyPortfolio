@@ -25,6 +25,13 @@ const Portfolio = () => {
 
     {
       id: 3,
+      image: "zentry.png",
+      about: "Zentry",
+      techs:
+        "React.js, Tailwind CSS, Vite, gsap,",
+      url: "https://zentry-v1.netlify.app/",
+    }, {
+      id: 4,
       image: "logo-room.png",
       about: "Logo Room",
       techs:
@@ -32,7 +39,7 @@ const Portfolio = () => {
       url: "https://logo-loom.onrender.com/",
     },
     {
-      id: 4,
+      id: 5,
       image: "media-player.png",
       about: "Media Player",
       techs:
@@ -40,21 +47,21 @@ const Portfolio = () => {
       url: "https://media-player-applicaion.netlify.app/",
     },
     {
-      id: 5,
+      id: 6,
       image: "nikee.png",
       about: "Nikee frontend",
       techs: "React, Tailwind CSS, React Router, Vite",
       url: "https://nike-websitee.netlify.app/",
     },
     {
-      id: 6,
+      id: 7,
       image: "calculator.png",
       about: "Simple Interest Calculator",
       techs: "React.js, Bootstrap, React Router DOM.",
       url: "https://simple-interestapp.netlify.app/",
     },
     {
-      id: 7,
+      id: 8,
       image: "notes-app.png",
       about: "Notes App",
       techs:
