@@ -1,24 +1,35 @@
-import React from "react";
 import { PiToolboxFill } from "react-icons/pi";
 
-const EducationCard = ({year,course,university,details}) => {
+const EducationCard = ({ year, course, university, details }) => {
   return (
-    <li key={course} className="  relative leading-8  w-fit pr-6 pl-[3rem] md:pl-16 mb-14">
-      <div className="absolute z-10 w-10 h-10 left-0 right-0 top-0 rounded-full bg-primary flex items-center justify-center">
-        <PiToolboxFill />
+    <div className="w-full flex flex-col sm:flex-row items-start gap-4 px-4 sm:px-6 py-4 text-white relative  sm:border-none border-white/10">
+      {/* Icon */}
+      <div
+        className="w-12 h-12 min-w-[3rem] rounded-full flex items-center justify-center
+        bg-white/5 shadow-md shadow-primary/30 ring-1 ring-white/10 backdrop-blur-md"
+      >
+        <PiToolboxFill className="text-xl text-primary" />
       </div>
-      <span className="bg-mid-gray text-light-gray text-xs px-1 rounded-full ">
-      {year}
-      </span>
-      <h5 className="uppercase font-medium mb-1">
-      {course}{" "}
-        <span className="text-light-gray ">- {university}</span>
-      </h5>
-      <p className="text-light-gray text-sm  leading-6">
-        {details}
-        
-      </p>
-    </li>
+
+      {/* Content */}
+      <div className="flex flex-col gap-2">
+        {/* Year Badge */}
+        <span className="inline-block w-fit text-xs px-3 py-1 bg-white/5 text-white rounded-full border border-white/20 backdrop-blur-sm">
+          {year}
+        </span>
+
+        {/* Course & University */}
+        <h5 className="text-sm sm:text-base uppercase font-semibold leading-tight">
+          {course}
+          <span className="block sm:inline font-normal text-white/70 ml-0 sm:ml-1 text-xs sm:text-sm">
+            — {university}
+          </span>
+        </h5>
+
+        {/* Description */}
+        <p className="text-white/70 text-sm leading-6">{details}</p>
+      </div>
+    </div>
   );
 };
 

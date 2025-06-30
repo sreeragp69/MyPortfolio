@@ -1,150 +1,153 @@
-import React from "react";
-import Heading from "../components/Heading/Heading";
-import Button from "../components/Button/Button";
+import React, { Suspense, lazy } from "react";
 import { FaDownload } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import MySkills from "../components/MySkills/MySkills";
-import Education from "../components/Education/Education";
-import DownloadButton from "../components/Button/DownloadButton";
+import {
+  FaUser,
+  FaBirthdayCake,
+  FaEnvelope,
+  FaPhone,
+  FaLinkedin,
+  FaGlobe,
+  FaRocket,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
+// Lazy-loaded Components
+const Heading = lazy(() => import("../components/Heading/Heading"));
+const MySkills = lazy(() => import("../components/MySkills/MySkills"));
+const Education = lazy(() => import("../components/Education/Education"));
+const Experience = lazy(() => import("../components/Experience/Experience"));
+const DownloadButton = lazy(() =>
+  import("../components/Button/DownloadButton")
+);
+
+const infos = [
+  { label: "Name", value: "Sreerag P", icon: <FaUser /> },
+  { label: "Age", value: "23", icon: <FaBirthdayCake /> },
+  {
+    label: "Email",
+    value: "psreerag69@gmail.com",
+    icon: <FaEnvelope />,
+    link: "mailto:psreerag69@gmail.com",
+  },
+  {
+    label: "Phone",
+    value: "7306259602",
+    icon: <FaPhone />,
+    link: "tel:7306259602",
+  },
+  {
+    label: "LinkedIn",
+    value: "sreerag-p",
+    icon: <FaLinkedin />,
+    link: "https://www.linkedin.com/in/sreerag-p/",
+  },
+  { label: "Nationality", value: "Indian", icon: <FaGlobe /> },
+  { label: "Freelance", value: "Available", icon: <FaRocket /> },
+  {
+    label: "Place",
+    value: "Indore, Madhya Pradesh",
+    icon: <FaMapMarkerAlt />,
+  },
+];
 
 const About = () => {
-
-  const truncateTechName = (techName) => {
-    if (techName.length > 10) {
-      return techName.slice(0, 10) + "...";
-    }
-    return techName;
-  };
-
-  const INFOS = [
-    {
-      id: 1,
-      key: "First Name",
-      value: "Sreerag",
-      link: null,
-    },
-    {
-      id: 2,
-      key: "Last Name",
-      value: "p",
-      link: null,
-    },
-    {
-      id: 3,
-      key: "Age",
-      value: "23",
-      link: null,
-    },
-    {
-      id: 4,
-      key: "Nationality",
-      value: "Indian",
-      link: null,
-    },
-    {
-      id: 5,
-      key: "Freelance",
-      value: "Not Available",
-      link: null,
-    },
-    {
-      id: 6,
-      key: "Place",
-      value: "Malappuram, Kerala",
-      link: null,
-    },
-    {
-      id: 7,
-      key: "Email",
-      value: "psreerag69@gmail.com",
-      link: "mailto:psreerag69@gmail.com",
-    },
-    {
-      id: 8,
-      key: "Phone",
-      value: "7306259602",
-      link: null,
-    },
-    {
-      id: 9,
-      key: "LinkedIn",
-      value: "sreerag-p",
-      link: "https://www.linkedin.com/in/sreerag-p",
-    },
-    {
-      id: 10,
-      key: "Languages",
-      value: "English, Hindi, Malayalam",
-      link: null,
-    },
-  ];
-
   return (
-    <section className="w-full  relative flex items-center justify-center bg-black " data-aos="fade-up">
-      {/* CONTAINER  */}
-      <div className="max-w-2xl pb-10  lg:max-w-full md:py-8  mx-auto w-[96% px-4 lg:px-10 pr-4 flex-col  justify-start lg:gap-12 min-h-screen flex items-center">
-        {/* Header part */}
-        <div className="flex  justify-center items-center   w-full  md:p-3 m-3 md:m-5 ">
-          <Heading
-            bgText={"resume"}
-            headTextWhite={"about"}
-            headTextOrenge={"me"}
-          />
+    <section className="w-full bg-black text-white flex items-center justify-center">
+      <div className="max-w-6xl w-full px-4 lg:px-10 py-12 mx-auto flex flex-col items-center">
+        {/* Heading */}
+        <div className="w-full mb-10">
+          <Suspense fallback={<div>Loading Heading...</div>}>
+            <Heading
+              bgText="resume"
+              headTextWhite="about"
+              headTextOrenge="me"
+            />
+          </Suspense>
         </div>
 
-        {/* PERSONAL INFOS */}
-        <div className="flex pb-4 flex-col lg:flex-row justify-center  w-full lg:items-start  lg:justify-between gap-5 text-white px-1 py-2">
-          <div className="lg:w-full  flex flex-col items-center justify-center lg:justify-center gap-3">
-            <div className="w-full md:mb-3">
-              <h2 className="font-bold  text-start text-white  text-2xl">
-                PERSONAL INFOS
-              </h2>
-            </div>
-
-            <div className="rounded-full my-4  w-52 md:w-64 h-52 md:h-64 border-4 lg:border-none lg:hidden flex border-[#252525]">
+        {/* Personal Info */}
+        <div className="w-full flex flex-col lg:flex-row gap-10">
+          {/* Left Side */}
+          <div className="w-full lg:w-full flex flex-col items-center lg:items-start gap-6">
+            {/* Avatar */}
+            <div className="w-52 h-52 md:w-64 md:h-64 rounded-full border-4 border-[#252525] shadow-md lg:hidden">
               <img
-                className="rounded-full text-center  h-full w-full lg:hidden"
-                src="/img-mobile.png"
-
-                alt="Avatar image"
+                src="/img-mobile.webp"
+                alt="Sreerag Avatar"
+                loading="lazy"
+                className="w-full h-full object-cover rounded-full hover:scale-105 transition-transform duration-300"
               />
             </div>
 
-            <div className="flex justify-start  items-start w-full">
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {INFOS.map((item) => (
-                  <div key={item.id} className="flex flex-col">
-                    <Link to={item.link} className="text-light-gray text-sm">
-                      <>
-                        {item.key} :{" "}
-                        <span className="font-semibold text-xs text-white">
-                       {item.value}
-                        </span>
-                      </>
-                    </Link>
+            <h2 className="text-2xl font-bold text-start w-full">
+              Personal Infos
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+              {infos.map((info, index) => (
+                <div
+                  key={index}
+                  className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-xl p-4 flex items-center gap-4 transition duration-300 hover:scale-[1.03] hover:shadow-xl"
+                >
+                  <div className="text-xl text-primary">{info.icon}</div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-gray-400 uppercase tracking-wide">
+                      {info.label}
+                    </span>
+                    {info.link ? (
+                      <a
+                        href={info.link}
+                        className="text-sm font-semibold text-white hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <span className="text-sm font-semibold">
+                        {info.value}
+                      </span>
+                    )}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
 
-            <div className="w-full mt-4">
-              <DownloadButton
-                className="self-start  "
-                Icon={FaDownload}
-                text={" download cv"}
-              />
+            <div className="w-full mt-6">
+              <Suspense fallback={<div>Loading Button...</div>}>
+                <DownloadButton Icon={FaDownload} text="Download CV" />
+              </Suspense>
             </div>
           </div>
         </div>
 
-        <hr className="text-gray w-1/2  my-10 " />
-        {/* MY SKILLS */}
+        {/* Divider */}
+        <hr className="my-12 w-2/3 border-white/20" />
 
-        <MySkills />
+        {/* Experience */}
+        <div className="w-full">
+          <Suspense fallback={<div>Loading Experience...</div>}>
+            <Experience />
+          </Suspense>
+        </div>
 
-        <hr className="text-gray w-1/2  my-10 " />
+        <hr className="my-12 w-2/3 border-white/20" />
 
-        <Education />
+        {/* Skills */}
+        <div className="w-full">
+          <Suspense fallback={<div>Loading Skills...</div>}>
+            <MySkills />
+          </Suspense>
+        </div>
+
+        <hr className="my-12 w-2/3 border-white/20" />
+
+        {/* Education */}
+        <div className="w-full">
+          <Suspense fallback={<div>Loading Education...</div>}>
+            <Education />
+          </Suspense>
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 const truncateTechName = (techName) => {
   if (techName.length > 10) {
     return techName.slice(0, 10) + "...";
@@ -9,13 +8,17 @@ const truncateTechName = (techName) => {
 const SkillCard = ({ techName, iconName: Icon }) => {
   return (
     <div
-      className="bg-primary flex items-center  justify-center gap-1  min-w-24 w-fit rounded-sm p-2 border border-primary cursor-pointer 
-    hover:bg-transparent hover:border-primary hover:scale-105 hover:shadow-xl hover:translate-y-[-2px] 
-    transition-all duration-300 ease-in-out group"
+      className="min-w-32 w-fit px-3 py-2 rounded-lg 
+        flex items-center justify-center gap-2
+        bg-white/10 backdrop-blur-md border border-white/20
+        text-white cursor-pointer
+        transition-all duration-300 ease-in-out 
+        hover:scale-105 hover:shadow-xl hover:translate-y-[-2px] hover:bg-white/20"
     >
-      {/* Render the icon dynamically */}
-      <Icon className=" text-base md:text-xl transition-colors  duration-300 ease-in-out group-hover:text-primary" />
-      <p className="font-semibold  text-sm md:text-base transition-colors truncate duration-300 ease-in-out">
+      {/* Icon */}
+      <Icon className="text-lg md:text-xl text-white transition-colors duration-300 group-hover:text-primary" />
+      {/* Tech Name */}
+      <p className="text-sm md:text-base font-medium truncate">
         {truncateTechName(techName)}
       </p>
     </div>

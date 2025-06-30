@@ -1,61 +1,49 @@
 import React from "react";
 import { FaEnvelope, FaHome, FaToolbox, FaUser } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
   return (
     <div
-      className={`z-10 SIDEBAR fixed p-4 top-0 left-0 h-screen w-full bg-[#252525] text-white transition-transform duration-300 ${
+      className={`fixed top-0 left-0 z-[100] h-full w-full bg-black/80 backdrop-blur-md text-white transform transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <ul className="mt-10 flex flex-col items-start p-4 font-medium uppercase gap-1">
-        <li className="border-b border-mid-gray py-4 w-full flex items-start">
-          <NavLink
-            to={"/"}
-            className={({ isActive }) =>
-              `${isActive ? "text-primary" : "text-white"} flex items-center justify-start gap-3 w-full`
-            }
-            onClick={closeSidebar}
-          >
-            <FaHome className="text-xl" /> <span>Home</span>
-          </NavLink>
-        </li>
-        <li className="border-b border-mid-gray py-4 w-full flex items-start">
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `${isActive ? "text-primary" : "text-white"} flex items-center justify-start gap-3 w-full`
-            }
-            onClick={closeSidebar}
-          >
-            <FaUser className="text-xl" />
-            About
-          </NavLink>
-        </li>
-        <li className="border-b border-mid-gray py-4 w-full flex items-start">
-          <NavLink
-            to="/portfolio"
-            className={({ isActive }) =>
-              `${isActive ? "text-primary" : "text-white"} flex items-center justify-start gap-3 w-full`
-            }
-            onClick={closeSidebar}
-          >
-            <FaToolbox className="text-xl" /> Portfolio
-          </NavLink>
-        </li>
-        <li className="border-b border-mid-gray py-4 w-full flex items-start">
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `${isActive ? "text-primary" : "text-white"} flex items-center justify-start gap-3 w-full`
-            }
-            onClick={closeSidebar}
-          >
-            <FaEnvelope className="text-2xl" />
-            Contact
-          </NavLink>
-        </li>
+      {/* Close Button */}
+      <button
+        onClick={closeSidebar}
+        className="absolute top-4 right-4 text-white bg-white/10 p-2 rounded-full hover:bg-white/20 transition"
+        aria-label="Close Sidebar"
+      >
+        <RxCross2 size={22} />
+      </button>
+
+      {/* Navigation Links */}
+      <ul className="mt-20 px-6 space-y-6 text-lg font-medium uppercase">
+        {[
+          { label: "Home", to: "/", icon: <FaHome /> },
+          { label: "About", to: "/about", icon: <FaUser /> },
+          { label: "Portfolio", to: "/portfolio", icon: <FaToolbox /> },
+          { label: "Contact", to: "/contact", icon: <FaEnvelope /> },
+        ].map(({ label, to, icon }) => (
+          <li key={label}>
+            <NavLink
+              to={to}
+              className={({ isActive }) =>
+                `flex items-center gap-4 w-full px-4 py-3 rounded-lg transition duration-200 ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "text-white hover:bg-white/10"
+                }`
+              }
+              onClick={closeSidebar}
+            >
+              <span className="text-xl">{icon}</span>
+              <span>{label}</span>
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </div>
   );

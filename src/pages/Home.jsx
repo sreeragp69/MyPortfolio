@@ -1,77 +1,65 @@
-import React, { useState, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import Button from "../components/Button/Button";
 import { Link } from "react-router-dom";
 
+const Button = lazy(() => import("../components/Button/Button"));
+
 const Home = () => {
-
-  const [isMobileView, setIsMobileView] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      // Check if the screen width is below the `lg` breakpoint (1024px)
-      setIsMobileView(window.innerWidth < 1024);
-    };
-
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize); // Add event listener for resize
-
-    return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup event listener
-    };
-  }, []);
-
   return (
-    <section className="w-full relative flex items-center justify-center bg-black"  data-aos="fade-up">
-      {/* CONTAINER  */}
-      <div className="max-w-xl lg:max-w-full p-8 md:p-8 justify-center lg:gap-12 min-h-screen flex flex-col lg:flex-row items-center">
-        {/* MAIN IMGAE SECTION */}
-        <div className=" lg:imageSection lg:w-[38%]  h-full lg:rounded-[2rem] m-1 bg-transparent mb-5 flex items-center justify-center">
-          <div className="rounded-full w-52 md:w-64 h-52 md:h-64 lg:h-full lg:w-full   border-4 lg:border-none border-[#252525]">
-            <img
-              className={`rounded-full text-white text-center  w-full h-full ${
-                isMobileView ? "" : "hidden"
-              }`}
-              src={"./img-mobile.png"}
-              alt="Image Avatar Mobile"
-            />
-            <img
-              className={`rounded-[2rem] text-white  w-full h-full ${
-                isMobileView ? "hidden" : ""
-              }`}
-              src={"./img-desktop.png"}
-              alt="Image Avatar Desktop"
-            />
-          </div>
-        </div>
+    <section
+      className="w-full min-h-screen bg-black flex items-center justify-center px-6 py-16"
+      id="home"
+      data-aos="fade-up"
+    >
+      <div className="max-w-7xl w-full flex flex-col-reverse lg:flex-row items-center gap-12">
+        
+        {/* TEXT SECTION */}
+        <div className="w-full lg:w-1/2 text-white text-center lg:text-left">
+          <div className="space-y-6">
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary animate-fade-in-down">
+                I'm Sreerag.
+              </h1>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold animate-fade-in-up">
+                Full stack Developer
+              </h2>
+            </div>
 
-        {/* MY DETAILS SECTION */}
-        <div className="contentSection lg:w-[50%] m-1   text-white">
-          <div className="p-3 lg:pl-12 ml-6 lg:mb-3  relative">
-            <h1 className="headingBar  text-3xl text-primary lg:text-[2.9rem] leading-10 lg:leading-[3.3rem] uppercase font-bold text-center lg:text-start">
-              i'm Sreerag.
-            </h1>
-            <h1 className="text-3xl text-white lg:text-[2.9rem] leading-10 lg:leading-[3.3rem] uppercase font-bold text-center lg:text-start">
-              Web developer
-            </h1>
-          </div>
-
-          <div className="p-3 ">
-            <p className="px-3  leading-7 lg:leading-8 text-base text-center lg:text-justify ">
-              I'm an aspiring full-stack developer specializing in the MERN
-              stack, focused on creating dynamic and user-friendly web
-              applications. Passionate about leveraging React, Node.js,
-              Express.js, and MongoDB to craft innovative solutions that enhance
-              user experiences and make a positive impact.
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed animate-fade-in-up">
+              Aspiring full-stack developer focused on crafting seamless web experiences using the MERN stack — React, Node.js, Express & MongoDB.
             </p>
-          </div>
 
-          <div className="p-3 px-6 flex items-center justify-center lg:justify-start">
-            <Link to={"/about"}>
-              <Button Icon={FaArrowRight} text={" more about me"} />
-            </Link>
+            <div className="animate-fade-in-up">
+              <Link to="/about" aria-label="More about me">
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Button Icon={FaArrowRight} text=" about me" />
+                </Suspense>
+              </Link>
+            </div>
           </div>
         </div>
+
+        {/* IMAGE SECTION */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <div className="relative group transition-transform hover:scale-105 duration-500">
+            <div className="rounded-3xl p-1 bg-gradient-to-br from-primary to-transparent shadow-xl transform rotate-[-2deg] group-hover:rotate-0 transition-all duration-500">
+              <picture>
+                <source
+                  srcSet="/img-desktop.webp"
+                  media="(min-width:1024px)"
+                  type="image/webp"
+                />
+                <img
+                  src="/img-mobile.webp"
+                  alt="Sreerag Avatar"
+                  loading="eager"
+                  className="rounded-2xl w-52 md:w-64 lg:w-80 h-52 md:h-64 lg:h-[28rem] object-cover border-4 border-[#252525] shadow-lg"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

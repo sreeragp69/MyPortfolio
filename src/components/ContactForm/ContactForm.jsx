@@ -4,8 +4,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 const ContactForm = () => {
-
-  const API = `https://myportfolio-backend-1.onrender.com`
+  const API = `https://myportfolio-backend-1.onrender.com`;
 
   const [user, setUser] = useState({
     name: "",
@@ -18,31 +17,14 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setUser({
-      ...user,
-      [name]: value,
-    });
+    setUser({ ...user, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled
     if (!user.name || !user.email || !user.subject || !user.message) {
-      toast.error("Please fill out all fields!", {
-        style: {
-          border:"1px solid #2F607D",
-          padding: "10px",
-          color: "#dddddd",
-          backgroundColor: "#2F607D",
-        },
-        iconTheme: {
-          primary: "#2F607D",
-          secondary: "#dddddd",
-        },
-      });
-
+      toast.error("Please fill out all fields!", toastStyle);
       return;
     }
 
@@ -52,128 +34,100 @@ const ContactForm = () => {
     try {
       const response = await fetch(`${API}/api/form/send-mail`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
-      });
-
-      setUser({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        toast.success(data.message, {
-          style: {
-            border:"1px solid #2F607D",
-            padding: "10px",
-            color: "#dddddd",
-            backgroundColor: "#2F607D",
-          },
-          iconTheme: {
-            primary: "#2F607D",
-            secondary: "#dddddd",
-          },
-        });
+        toast.success(data.message, toastStyle);
+        setUser({ name: "", email: "", subject: "", message: "" });
       } else {
-        toast.error(data.error || "Something went wrong!", {
-          style: {
-            border:"1px solid #2F607D",
-            padding: "10px",
-            color: "#dddddd",
-            backgroundColor: "#2F607D",
-          },
-          iconTheme: {
-            primary: "#2F607D",
-            secondary: "#dddddd",
-          },
-        });
+        toast.error(data.error || "Something went wrong!", toastStyle);
         setError(data.error || "Something went wrong!");
       }
-    } catch (error) {
-      console.log(error);
-      toast.error("An error occurred. Please try again.", {
-        style: {
-          border:"1px solid #2F607D",
-          padding: "10px",
-          color: "#dddddd",
-          backgroundColor: "#2F607D",
-        },
-        iconTheme: {
-          primary: "#2F607D",
-          secondary: "#dddddd",
-        },
-      });
+    } catch (err) {
+      toast.error("An error occurred. Please try again.", toastStyle);
       setError("An error occurred. Please try again.");
     }
+
     setLoading(false);
+  };
+
+  const toastStyle = {
+    style: {
+      border: "1px solid #2F607D",
+      padding: "10px",
+      color: "#dddddd",
+      backgroundColor: "#2F607D",
+    },
+    iconTheme: {
+      primary: "#2F607D",
+      secondary: "#dddddd",
+    },
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full flex flex-col items-cente lg:items-start justify-center gap-7 mt-9 lg:mt-0"
+      className="w-full flex flex-col gap-6 bg-white/5 p-6 rounded-xl backdrop-blur-md border border-white/10 shadow-md"
     >
-      <div className="w-full gap-8 lg:gap-4 flex justify-between flex-col lg:flex-row items-center">
-        <div className="w-full">
-          <input
-            className="rounded-full w-full bg-gray outline-none text-white placeholder:text-mid-gray focus:ring-primary focus:ring-1 px-5 py-2.5"
-            type="text"
-            name="name"
-            placeholder="Your name"
-            onChange={handleChange}
-            value={user.name}
-            required
-          />
-        </div>
-
-        <div className="w-full">
-          <input
-            className="rounded-full  w-full bg-gray outline-none text-white placeholder:text-mid-gray focus:ring-primary focus:ring-1 px-5 py-2.5"
-            type="email"
-            name="email"
-            placeholder="Your email"
-            onChange={handleChange}
-            value={user.email}
-            required
-          />
-        </div>
-      </div>
-
-      <div className="w-full">
+      {/* Name & Email */}
+      <div className="flex flex-col sm:flex-row gap-5">
         <input
-          className="rounded-full  w-full bg-gray outline-none text-white placeholder:text-mid-gray focus:ring-primary focus:ring-1 px-5 py-2.5"
           type="text"
-          name="subject"
-          placeholder="Your subject"
+          name="name"
+          placeholder="Name"
+          value={user.name}
           onChange={handleChange}
-          value={user.subject}
           required
+          className="flex-1 px-4 py-2.5 rounded-md bg-white/10 text-white placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-primary"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={user.email}
+          onChange={handleChange}
+          required
+          className="flex-1 px-4 py-2.5 rounded-md bg-white/10 text-white placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-primary"
         />
       </div>
 
-      <div className="w-full">
-        <textarea
-          rows={7}
-          className="w-full rounded-3xl bg-gray outline-none text-white placeholder:text-mid-gray focus:ring-primary focus:ring-1 px-5 py-2.5"
-          name="message"
-          placeholder="Your message"
-          onChange={handleChange}
-          value={user.message}
-          required
-        ></textarea>
-      </div>
-      {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
-      <div>
-        <Button
-          Icon={FaTelegramPlane   }
-          text={loading ? "Sending..." : "Send message"}
-        />
+      {/* Subject */}
+      <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+        value={user.subject}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-2.5 rounded-md bg-white/10 text-white placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-primary"
+      />
+
+      {/* Message */}
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="Message"
+        value={user.message}
+        onChange={handleChange}
+        required
+        className="w-full px-4 py-3 rounded-md bg-white/10 text-white placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-primary resize-none"
+      ></textarea>
+
+      {/* Error */}
+      {error && <p className="text-red-500 text-sm -mt-2">{error}</p>}
+
+      {/* Button */}
+      <div className="w-full flex justify-start">
+        <div className="w-[10px]  ">
+          <Button
+            Icon={FaTelegramPlane}
+            text={loading ? "Sending..." : "Send message"}
+          />
+        </div>
       </div>
     </form>
   );

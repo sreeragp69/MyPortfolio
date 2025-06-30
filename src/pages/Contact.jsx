@@ -14,98 +14,54 @@ import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <section className="w-full  relative flex items-center justify-center bg-black " data-aos="fade-up">
-      {/* CONTAINER  */}
-      <div className="max-w-2xl pb-10  lg:max-w-full md:py-8  mx-auto w-[96%] px-4 lg:px-10 pr-4 flex-col  justify-start lg:gap-12 min-h-screen flex items-center">
-        {/* CONTACT HEADER */}
-        <div className="flex  justify-center items-center  w-full  md:p-3 m-3 md:m-5 ">
-          <Heading
-            bgText={"connect"}
-            headTextWhite={"get in"}
-            headTextOrenge={"touch"}
-          />
+    <section className="w-full min-h-screen bg-black py-16 px-6" id="contact">
+      <div className="max-w-6xl mx-auto flex flex-col gap-12 text-white">
+        {/* Heading */}
+        <div className="text-center">
+          <Heading bgText="connect" headTextWhite="get in" headTextOrenge="touch" />
         </div>
 
-        {/* COTACT */}
-        <div className="flex pb-4  flex-col lg:flex-row  w-full items-start  justify-between gap-5 text-white px-1 py-2">
-          <div className="lg:w-[30%]  flex flex-col items-start justify-start gap-4">
-            <div className="">
-              <h2 className="font-bold text-white pb-3 text-2xl">Contact Me</h2>
-              <p className="pb-3 leading-6 text-[15px]">
-                If you're looking for a dedicated MERN Stack developer to bring
-                your ideas to life, I would love to connect with you!
-              </p>
-            </div>
+        <div className="flex flex-col lg:flex-row gap-10">
+          {/* Info */}
+          <div className="lg:w-1/3 flex flex-col gap-6">
+            <h2 className="text-2xl font-bold">Let’s Connect</h2>
+            <p className="text-gray-300">
+              Reach out if you're looking for a MERN stack developer or just want to say hi.
+            </p>
 
-            <div className="flex flex-col gap-3 ">
-
+            <div className="space-y-4 text-sm text-gray-300">
               <div className="flex items-start gap-3">
-                <FaMap className="text-5xl  text-primary" />
-                <div>
-                  <p className="uppercase text-light-gray">Address Point</p>
-                  <Link className="text-white font-medium no-underline ">
-                    Kondotty malappuram, kerala india ,673641
-                  </Link>
-                </div>
+                <FaMap className="text-primary text-xl mt-1" />
+                <p>Kondotty, Malappuram, Kerala, India – 673641</p>
               </div>
-
-              <div className="flex items-center gap-3">
-                <FaEnvelopeOpen className="text-4xl text-primary" />
-                <div>
-                  <p className="uppercase text-light-gray">mail me</p>
-                  <Link className="text-white font-medium no-underline ">
-                    psreerag@gmail.com
-                  </Link>
-                </div>
+              <div className="flex items-start gap-3">
+                <FaEnvelopeOpen className="text-primary text-xl mt-1" />
+                <p>psreerag@gmail.com</p>
               </div>
-
-              <div className="flex items-center gap-3">
-                <FaPhoneSquare className="text-4xl text-primary" />
-                <div>
-                  <p className="uppercase text-light-gray">call me</p>
-                  <Link className="text-white font-medium no-underline">
-                    +91 7306259602
-                  </Link>
-                </div>
+              <div className="flex items-start gap-3">
+                <FaPhoneSquare className="text-primary text-xl mt-1" />
+                <p>+91 7306259602</p>
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-4 mt-2 text-xl">
-              <Link
-                target="_blank"
-                to={"https://github.com/sreeragp69"}
-                className="p-3 bg-gray rounded-full hover:bg-primary hover:text-white duration-500 ease-in-out transition-colors"
-              >
-                <FaGithub />
+            <div className="flex gap-4 pt-4 text-xl">
+              <Link to="https://github.com/sreeragp69" target="_blank">
+                <FaGithub className="hover:text-primary transition" />
               </Link>
-
-              <Link
-                target="_blank"
-                to={"https://www.linkedin.com/in/sreerag-p/"}
-                className="p-3 bg-gray rounded-full hover:bg-primary hover:text-white duration-500 ease-in-out transition-colors"
-              >
-                <FaLinkedin />
+              <Link to="https://linkedin.com/in/sreerag-p" target="_blank">
+                <FaLinkedin className="hover:text-primary transition" />
               </Link>
-
-              <Link
-                target="_blank"
-                to={"https://www.instagram.com/s.r.e.e__rag/"}
-                className="p-3 bg-gray rounded-full hover:bg-primary hover:text-white duration-500 ease-in-out transition-colors"
-              >
-                <AiFillInstagram />
+              <Link to="https://instagram.com/s.r.e.e__rag" target="_blank">
+                <AiFillInstagram className="hover:text-primary transition" />
               </Link>
-
-              <Link
-                target="_blank"
-                to={"https://x.com/Sree_rag_p"}
-                className="p-3 bg-gray rounded-full hover:bg-primary hover:text-white duration-500 ease-in-out transition-colors"
-              >
-                <FaTwitter />
+              <Link to="https://x.com/Sree_rag_p" target="_blank">
+                <FaTwitter className="hover:text-primary transition" />
               </Link>
             </div>
           </div>
 
-          <div className="w-full lg:w-[69%] text-white flex flex-col gap-5">
+          {/* Contact Form */}
+          <div className="lg:w-2/3">
             <ContactForm />
           </div>
         </div>

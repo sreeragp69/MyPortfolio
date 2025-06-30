@@ -1,5 +1,13 @@
 import SkillCard from "./SkillCard";
-
+import { RiReactjsFill } from "react-icons/ri";
+import { SiRedux, SiThreedotjs,SiAdobexd ,SiMui,SiJquery,SiGoogleanalytics    } from "react-icons/si";
+import { AiOutlineCloudServer } from "react-icons/ai";
+import { GrMysql } from "react-icons/gr";
+import { MdErrorOutline } from "react-icons/md";
+import { FaFigma } from "react-icons/fa";
+import { PiFileSqlLight } from "react-icons/pi";
+import { FiFramer } from "react-icons/fi";
+import { RiDatabaseFill } from "react-icons/ri";
 import {
   FaBootstrap,
   FaCss3Alt,
@@ -38,26 +46,54 @@ const MySkills = () => {
   const FrontendSkill = [
     {
       icon: FaHtml5,
-      nameOFIcon: "HTML",
+      nameOFIcon: "HTML5",
     },
     {
       icon: FaCss3Alt,
-      nameOFIcon: "CSS",
+      nameOFIcon: "CSS3",
     },
     {
       icon: FaJsSquare,
-      nameOFIcon: "JavaScript",
+      nameOFIcon: "JavaScript ES6+",
+    },
+     {
+      icon: RiReactjsFill,
+      nameOFIcon: "React Js",
+    },
+     {
+      icon: SiRedux,
+      nameOFIcon: "Redux",
     },
     {
       icon: RiTailwindCssFill,
-      nameOFIcon: "TailwindCss",
+      nameOFIcon: "TailwindCSS",
+    },
+    {
+      icon: SiThreedotjs,
+      nameOFIcon: "Three.js",
+    },
+    {
+      icon: MdErrorOutline,
+      nameOFIcon: "GSAP",
+    },
+    {
+      icon: FaFigma,
+      nameOFIcon: "Figma",
+    },
+    {
+      icon: SiAdobexd ,
+      nameOFIcon: "Adobe XD",
+    },
+    {
+      icon: FiFramer,
+      nameOFIcon: "Framer Motion",
     },
     {
       icon: FaBootstrap,
       nameOFIcon: "Bootstrap",
     },
     {
-      icon: BiError,
+      icon: SiMui ,
       nameOFIcon: "Material UI",
     },
     {
@@ -80,7 +116,11 @@ const MySkills = () => {
       nameOFIcon: "Express Js",
     },
     {
-      icon: BiError,
+      icon: SiJquery ,
+      nameOFIcon: "jQuery",
+    },
+    {
+      icon: AiOutlineCloudServer,
       nameOFIcon: "RESTful APIs",
     },
     {
@@ -93,6 +133,18 @@ const MySkills = () => {
     {
       icon: DiMongodb,
       nameOFIcon: "Mongodb",
+    },
+    {
+      icon: PiFileSqlLight ,
+      nameOFIcon: "MySQL",
+    },
+    {
+      icon: DiMongodb,
+      nameOFIcon: "SQL",
+    },
+    {
+      icon: RiDatabaseFill,
+      nameOFIcon: "Relational Databases",
     },
     {
       icon: SiMongoose,
@@ -114,9 +166,14 @@ const MySkills = () => {
       nameOFIcon: "Github",
     },
     {
+      icon: SiGoogleanalytics ,
+      nameOFIcon: "Power BI",
+    },
+    {
       icon: SiNetlify,
       nameOFIcon: "Netlify",
     },
+   
     {
       icon: SiRender,
       nameOFIcon: "Render",
@@ -135,75 +192,39 @@ const MySkills = () => {
   ];
 
   return (
-    <div className="text-white w-full flex flex-col  gap-7">
-      <div className="w-full ">
-        <h2 className="font-bold   text-center text-white  text-2xl">
-          PERSONAL INFOS
+  <section className="w-full py-12 px-4 md:px-12 text-white flex flex-col gap-10">
+      {/* Section Heading */}
+      <div className="text-center">
+        <h2 className="text-3xl font-extrabold uppercase tracking-wider text-white">
+          My Skills
         </h2>
       </div>
 
-      <div className=" flex flex-col gap-10 border-gray p-3 ">
-        <div>
-          <h1 className=" mb-2">Frontend</h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:flex xl:flex-wrap  gap-4">
-            {FrontendSkill &&
-              FrontendSkill.map((item) => (
-                <div key={item.nameOFIcon}>
-                  <SkillCard  techName={item.nameOFIcon} iconName={item.icon} />
-                </div>
+      {/* Skill Categories */}
+      <div className="flex flex-col gap-12">
+        {/* Render Skill Blocks */}
+        {[
+          { title: "Frontend", data: FrontendSkill },
+          { title: "Backend", data: backendSkill },
+          { title: "Database", data: DatabaseSkill },
+          { title: "Tools", data: toolSkill },
+          { title: "Testing", data: testingSkill },
+        ].map((section) => (
+          <div key={section.title}>
+            <h3 className="text-xl font-semibold mb-3 text-white/90">{section.title}</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:flex xl:flex-wrap gap-4">
+              {section.data.map((item) => (
+                <SkillCard
+                  key={item.nameOFIcon}
+                  techName={item.nameOFIcon}
+                  iconName={item.icon}
+                />
               ))}
+            </div>
           </div>
-        </div>
-
-        <div>
-          <h1 className=" mb-2">Backend</h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:flex xl:flex-wrap  gap-4">
-            {backendSkill &&
-              backendSkill.map((item) => (
-                <div key={item.nameOFIcon}>
-                  <SkillCard techName={item.nameOFIcon} iconName={item.icon} />
-                </div>
-              ))}
-          </div>
-        </div>
-
-        <div>
-          <h1 className=" mb-2">Database</h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:flex xl:flex-wrap  gap-4">
-            {DatabaseSkill &&
-              DatabaseSkill.map((item) => (
-                <div key={item.nameOFIcon}>
-                  <SkillCard techName={item.nameOFIcon} iconName={item.icon} />
-                </div>
-              ))}
-          </div>
-        </div>
-
-        <div>
-          <h1 className=" mb-2">Tools</h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-4">
-            {toolSkill &&
-              toolSkill.map((item) => (
-                <div key={item.nameOFIcon}>
-                  <SkillCard techName={item.nameOFIcon} iconName={item.icon} />
-                </div>
-              ))}
-          </div>
-        </div>
-
-        <div>
-          <h1 className=" mb-2">Testing</h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-4">
-            {testingSkill &&
-              testingSkill.map((item) => (
-                <div key={item.nameOFIcon}>
-                  <SkillCard techName={item.nameOFIcon} iconName={item.icon} />
-                </div>
-              ))}
-          </div>
-        </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

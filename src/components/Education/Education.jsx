@@ -5,49 +5,57 @@ const Education = () => {
   const myEducation = [
     {
       year: "2023",
-      course: "MERN FULL STACK ",
+      course: "MERN FULL STACK",
       university: "Luminar Technolab",
       details:
-        "Completed a 6-month MERN stack web development course, gaining hands-on experience in building full-stack applications, RESTful APIs, managing MongoDB databases, and deploying projects, culminating in a certification recognizing technical expertise and contributions.",
+        "Completed a 6-month MERN stack web development course, gaining hands-on experience in full-stack apps, RESTful APIs, MongoDB, and deployments. Earned certification for technical contributions.",
     },
     {
       year: "2020-23",
-      course: " BSc Computer Science",
-      university: "Calicut university",
+      course: "BSc Computer Science",
+      university: "Calicut University",
       details:
-        "Gained expertise in computer systems, algorithms, data structures, and programming paradigms, leading a MERN stack project in the final year to demonstrate full-stack skills, teamwork, and proficiency in problem-solving and software design.",
+        "Studied algorithms, data structures, and systems. Led a MERN stack project showcasing full-stack development, teamwork, and software design proficiency.",
     },
     {
       year: "2018-20",
-      course: "higher secondary",
-      university: "GHSS Kuzhimanna, malappuram",
+      course: "Higher Secondary",
+      university: "GHSS Kuzhimanna, Malappuram",
       details:
-        "Studied Science with a focus on Biology, Physics, Chemistry, and Mathematics, building a strong foundation in analytical thinking and problem-solving while actively participating in academic projects and extracurricular activities.",
+        "Focused on Biology, Physics, Chemistry, and Mathematics. Developed analytical skills through academic and extracurricular involvement.",
     },
   ];
 
   return (
-    <div className="text-white w-full flex flex-col  gap-7">
-      <div className="w-full ">
-        <h2 className="font-bold  md:pl-10   text-center text-white  text-2xl">
+    <section
+      id="education"
+      className="w-full  py-12 px-4 md:px-12 text-white flex flex-col gap-10 items-center"
+    >
+      {/* Heading */}
+      <div className="w-full text-center">
+        <h2 className="text-3xl font-extrabold uppercase tracking-wider text-white">
           Education
         </h2>
       </div>
 
-      <div className=" p-1">
-        <ul className="resume-box ">
-          {myEducation &&
-            myEducation.map((item) => (
-              <EducationCard
-                year={item.year}
-                course={item.course}
-                university={item.university}
-                details={item.details}
-              />
-            ))}
-        </ul>
+      {/* Timeline List with Glass Cards */}
+      <div className="w-full max-w-4xl flex flex-col gap-8">
+        {myEducation.map((item, index) => (
+          <div
+            key={index}
+            className="p-6 rounded-xl bg-white/5 border border-white/20 
+              backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300"
+          >
+            <EducationCard
+              year={item.year}
+              course={item.course}
+              university={item.university}
+              details={item.details}
+            />
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 
