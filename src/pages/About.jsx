@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { FaDownload } from "react-icons/fa";
+import { useEffect } from "react";
 import {
   FaUser,
   FaBirthdayCake,
@@ -50,7 +51,11 @@ const infos = [
   },
 ];
 
+
 const About = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="w-full bg-black text-white flex items-center justify-center">
       <div className="max-w-6xl w-full px-4 lg:px-10 py-12 mx-auto flex flex-col items-center">

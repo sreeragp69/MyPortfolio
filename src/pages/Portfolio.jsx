@@ -5,6 +5,9 @@ import Heading from "../components/Heading/Heading";
 import WorkCard from "../components/WorkCard/WorkCard";
 
 const Portfolio = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const myWorks = [
     {
       id: 1,

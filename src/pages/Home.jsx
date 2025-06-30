@@ -1,10 +1,13 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Button = lazy(() => import("../components/Button/Button"));
 
 const Home = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section
       className="w-full min-h-screen bg-black flex items-center justify-center px-6 py-16"

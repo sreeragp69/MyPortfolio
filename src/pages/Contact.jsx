@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Heading from "../components/Heading/Heading";
 import {
   FaEnvelopeOpen,
@@ -13,6 +13,9 @@ import ContactForm from "../components/ContactForm/ContactForm";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="w-full min-h-screen bg-black py-16 px-6" id="contact">
       <div className="max-w-6xl mx-auto flex flex-col gap-12 text-white">
